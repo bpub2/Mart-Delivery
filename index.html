@@ -105,19 +105,34 @@
             margin-bottom: 60px;
         }
 
-        .avatar {
-            width: 120px;
-            height: 120px;
+        .logo-container {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
-            color: white;
             box-shadow: 0 10px 30px rgba(108, 99, 255, 0.4);
             border: 4px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 22px;
+            color: var(--dark);
+            text-align: center;
+            padding: 10px;
+            line-height: 1.2;
         }
 
         .name {
@@ -242,12 +257,12 @@
             background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         }
 
-        .tiktok .app-icon {
-            background: linear-gradient(45deg, #000000, #25F4EE, #FE2C55);
+        .facebook .app-icon {
+            background: linear-gradient(45deg, #1877F2, #0A7CFF);
         }
 
-        .whatsapp .app-icon {
-            background: linear-gradient(45deg, #25D366, #128C7E);
+        .phone .app-icon {
+            background: linear-gradient(45deg, #34B7F1, #0088CC);
         }
 
         .app:hover .app-icon i {
@@ -258,12 +273,12 @@
             animation: instaRotate 0.5s ease;
         }
 
-        .tiktok:hover .app-icon i {
-            animation: tiktokVibrate 0.5s ease;
+        .facebook:hover .app-icon i {
+            animation: facebookPulse 0.5s ease;
         }
 
-        .whatsapp:hover .app-icon i {
-            animation: whatsappTyping 0.5s ease;
+        .phone:hover .app-icon i {
+            animation: phoneRing 0.5s ease;
         }
 
         .dock {
@@ -450,24 +465,25 @@
             }
         }
 
-        @keyframes tiktokVibrate {
-            0%, 100% {
-                transform: translateX(0);
-            }
-            25% {
-                transform: translateX(-2px);
-            }
-            75% {
-                transform: translateX(2px);
-            }
-        }
-
-        @keyframes whatsappTyping {
+        @keyframes facebookPulse {
             0%, 100% {
                 transform: scale(1);
             }
             50% {
                 transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(24, 119, 242, 0.5);
+            }
+        }
+
+        @keyframes phoneRing {
+            0%, 100% {
+                transform: rotate(0);
+            }
+            25% {
+                transform: rotate(15deg);
+            }
+            75% {
+                transform: rotate(-15deg);
             }
         }
 
@@ -519,11 +535,13 @@
             <!-- Écran de verrouillage -->
             <div class="lock-screen" id="lock-screen">
                 <div class="profile">
-                    <div class="avatar">
-                        <i class="fas fa-palette"></i>
+                    <div class="logo-container">
+                        <div class="logo">
+                            <img src="mART Delivery.png" alt="MART DELIVERY" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
                     </div>
-                    <h1 class="name">PRO DESIGNER DZ</h1>
-                    <p class="title">Design & Création Visuelle</p>
+                    <h1 class="name">MART DELIVERY</h1>
+                    <p class="title">فريق التوصيل</p>
                 </div>
                 
                 <div class="unlock-hint">
@@ -544,22 +562,22 @@
                         <span class="app-name">Instagram</span>
                     </a>
                     
-               <a href="https://www.tiktok.com/@thedesignero?_r=1&_t=ZS-91KoGNu0bSP" target="_blank" class="app tiktok">
+                    <!-- Application Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=100087905974418" target="_blank" class="app facebook">
                         <div class="app-icon">
-                            <i class="fab fa-tiktok"></i>
+                            <i class="fab fa-facebook-f"></i>
                         </div>
-                        <span class="app-name">TikTok</span>
-                    </a> 
+                        <span class="app-name">Facebook</span>
+                    </a>
                     
-                    <a href="https://wa.me/213669059738" target="_blank" class="app whatsapp">
+                    <!-- Application Phone -->
+                    <a href="tel:+213669059738" class="app phone">
                         <div class="app-icon">
-                            <i class="fab fa-whatsapp"></i>
+                            <i class="fas fa-phone-alt"></i>
                         </div>
-                        <span class="app-name">WhatsApp</span>
+                        <span class="app-name">Phone</span>
                     </a>
                 </div>
-                
-                
                 
                 <div class="swipe-indicator" id="swipe-indicator">
                     <div class="swipe-line"></div>
@@ -603,6 +621,22 @@
                             <i class="fas fa-calendar-alt"></i>
                         </div>
                         <span class="control-name">Rendez-vous</span>
+                    </a>
+                    
+                    <!-- Contrôle Facebook -->
+                    <a href="https://www.facebook.com/profile.php?id=100087905974418" target="_blank" class="control-item">
+                        <div class="control-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <span class="control-name">Facebook</span>
+                    </a>
+                    
+                    <!-- Contrôle Phone -->
+                    <a href="tel:+213669059738" class="control-item">
+                        <div class="control-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <span class="control-name">Phone</span>
                     </a>
                 </div>
             </div>
@@ -651,11 +685,6 @@
         });
         
         // Gestion du centre de contrôle
-        document.getElementById('control-center-trigger').addEventListener('click', () => {
-            controlCenter.classList.add('active');
-            swipeIndicator.classList.add('hidden');
-        });
-        
         document.getElementById('close-control').addEventListener('click', () => {
             controlCenter.classList.remove('active');
             swipeIndicator.classList.remove('hidden');
@@ -692,18 +721,6 @@
                 swipeIndicator.classList.add('hidden');
             }
         });
-
-        // Ajout d'un déclencheur pour le centre de contrôle
-        const controlCenterTrigger = document.createElement('div');
-        controlCenterTrigger.id = 'control-center-trigger';
-        controlCenterTrigger.className = 'app';
-        controlCenterTrigger.innerHTML = `
-            <div class="app-icon" style="background: linear-gradient(45deg, var(--primary), var(--accent));">
-                <i class="fas fa-sliders-h"></i>
-            </div>
-            <span class="app-name">Contrôles</span>
-        `;
-        document.querySelector('.apps-grid').appendChild(controlCenterTrigger);
     </script>
 </body>
 </html>
