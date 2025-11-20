@@ -77,7 +77,7 @@
             flex: 1;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #250D8F 0%, #080047 100%);
+            background: linear-gradient(135deg, #250D8F 0%, #7361FF 100%);
         }
 
         .lock-screen {
@@ -424,6 +424,52 @@
             opacity: 0.7;
             transition: var(--transition);
         }
+        
+        .phones-row {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+        }
+        
+        .phone-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            text-decoration: none;
+            padding: 15px;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid var(--glass-border);
+            min-width: 120px;
+        }
+        
+        .phone-number {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--light);
+            text-align: center;
+            line-height: 1.3;
+        }
+        
+        .phone-label {
+            font-size: 14px;
+            text-align: center;
+            opacity: 0.8;
+            font-weight: 500;
+            color: var(--light);
+        }
+        
+        .phone-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
 
         .swipe-indicator.hidden {
             opacity: 0;
@@ -570,6 +616,7 @@
             <!-- Écran d'accueil -->
             <div class="home-screen" id="home-screen">
                 <div class="date" id="current-date">Lundi 15 mai</div>
+                
                 <div class="logo-container">
                         <div class="logo">
                             <img src="mART Delivery.png" alt="MART DELIVERY" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
@@ -586,37 +633,31 @@
                             <span class="app-name">Instagram</span>
                         </a>
                         
-                        <!-- <a href="https://www.facebook.com/profile.php?id=100087905974418" target="_blank" class="app facebook">
+                        <a href="https://www.facebook.com/profile.php?id=100087905974418" target="_blank" class="app facebook">
                             <div class="app-icon">
                                 <i class="fab fa-facebook-f"></i>
                             </div>
                             <span class="app-name">Facebook</span>
-                        </a> -->
+                        </a>
                     </div>
                     
                     <!-- Phone Numbers Row -->
-                    <div class="phones-row">
-                        <a href="tel:+213658174968" class="app phone">
-                            <div class="app-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <span class="app-name">Phone 1</span>
-                        </a>
-
-                        <a href="tel:+213656465940" class="app phone">
-                            <div class="app-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <span class="app-name">Phone 2</span>
-                        </a>
-
-                        <a href="tel:+213666575782" class="app phone">
-                            <div class="app-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <span class="app-name">Phone 3</span>
-                        </a>
-                    </div>
+                      <div class="phones-row">
+                          <div class="phone-item">
+                              <div class="phone-number">0658174968</div>
+                              <span class="phone-label">Phone 1</span>
+                          </div>
+                      
+                          <div class="phone-item">
+                              <div class="phone-number">0656465940</div>
+                              <span class="phone-label">Phone 2</span>
+                          </div>
+                      
+                          <div class="phone-item">
+                              <div class="phone-number">0666575782</div>
+                              <span class="phone-label">Phone 3</span>
+                          </div>
+                      </div>
                 </div>
                 
                 <div class="swipe-indicator" id="swipe-indicator">
